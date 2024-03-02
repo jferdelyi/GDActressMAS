@@ -1,0 +1,14 @@
+[configuration]
+
+entry_symbol = "gdcppactressmas_library_init"
+compatibility_minimum = "4.1"
+
+[libraries]
+
+macos.debug = "res://addons/GDCPPActressMAS/bin/macos/libgdcppactressmas.debug.dylib"
+macos.release = "res://addons/GDCPPActressMAS/bin/macos/libgdcppactressmas.release.dylib"
+windows.debug.x86_64 = "res://addons/GDCPPActressMAS/bin/win64/gdcppactressmas.debug.dll"
+windows.release.x86_64 = "res://addons/GDCPPActressMAS/bin/win64/gdcppactressmas.release.dll"
+linux.debug.x86_64 = "res://addons/GDCPPActressMAS/bin/x11/libgdcppactressmas.debug.so"
+linux.release.x86_64 = "res://addons/GDCPPActressMAS/bin/x11/libgdcppactressmas.release.so"
+
