@@ -23,6 +23,13 @@ if(DEFINED BUILD_FOR_EDITOR)
 	endif()
 endif()
 
+include_directories(externals)
+if(CMAKE_BUILD_TYPE MATCHES Debug)
+	link_directories(externals/CPPActressMAS/bin/debug)
+else()
+	link_directories(externals/CPPActressMAS/bin/release)
+endif()
+
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 	set(TARGET_PATH x11)
 	set(LIB_EXT ".so")
@@ -170,21 +177,32 @@ if(ANDROID)
 	set(SYSTEM_NAME ${SYSTEM_NAME}.${ANDROID_ABI})
 endif()
 
+find_package(OpenSSL REQUIRED)
+find_package(PahoMqttCpp REQUIRED)
+
 if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
 	target_link_directories(${PROJECT_NAME}
 		PRIVATE
 		${CPP_BINDINGS_PATH}/bin/Debug # "Debug" Always seems to be a bug on Windows
 	)
+	target_link_options(${PROJECT_NAME} PRIVATE LINKER:-no_warn_duplicate_libraries)
 	target_link_libraries(${PROJECT_NAME}
 		godot-cpp.${SYSTEM_NAME}.${BUILD_TYPE}$<$<NOT:$<PLATFORM_ID:Android>>:.${BITS}>
+		OpenSSL::SSL 
+		PahoMqttCpp::paho-mqttpp3-static
+		CPPActressMAS
 	)
 else()
 	target_link_directories(${PROJECT_NAME}
 		PRIVATE
 		${CPP_BINDINGS_PATH}/bin/
 	)
+	target_link_options(${PROJECT_NAME} PRIVATE LINKER:-no_warn_duplicate_libraries)
 	target_link_libraries(${PROJECT_NAME}
 		libgodot-cpp.${SYSTEM_NAME}.${BUILD_TYPE}$<$<NOT:$<PLATFORM_ID:Android>>:.${BITS}>.a
+		OpenSSL::SSL
+		PahoMqttCpp::paho-mqttpp3-static
+		libCPPActressMAS.a
 	)
 endif()
 	

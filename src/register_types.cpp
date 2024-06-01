@@ -6,12 +6,17 @@
 #include <godot_cpp/core/defs.hpp>
 #include <godot_cpp/godot.hpp>
 
+#include "GDAgent.h"
+#include "GDEnvironment.h"
+
 using namespace godot;
 
 void initialize_gdcppactressmas_module(ModuleInitializationLevel p_level) {
 	if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
 		return;
 	}
+	ClassDB::register_class<GDAgent>();
+	ClassDB::register_class<GDEnvironment>();
 }
 
 void uninitialize_gdcppactressmas_module(ModuleInitializationLevel p_level) {
