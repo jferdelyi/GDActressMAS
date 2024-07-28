@@ -1,0 +1,14 @@
+[configuration]
+
+entry_symbol = "gdcppactressmas_library_init"
+compatibility_minimum = "4.2"
+
+[libraries]
+
+macos.debug = "res://addons/gd_actress_mas/bin/macos/libgd_minimal_agent.debug.dylib"
+macos.release = "res://addons/gd_actress_mas/bin/macos/libgd_minimal_agent.release.dylib"
+windows.debug.x86_64 = "res://addons/gd_actress_mas/bin/win64/gd_minimal_agent.debug.dll"
+windows.release.x86_64 = "res://addons/gd_actress_mas/bin/win64/gd_minimal_agent.release.dll"
+linux.debug.x86_64 = "res://addons/gd_actress_mas/bin/x11/libgd_minimal_agent.debug.so"
+linux.release.x86_64 = "res://addons/gd_actress_mas/bin/x11/libgd_minimal_agent.release.so"
+

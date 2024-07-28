@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://byx7fox7racbb"]
+
+[ext_resource type="Script" path="res://exemples/exemple2/exemple2.gd" id="1_chatw"]
+
+[node name="Exemple2" type="GDEnvironment"]
+seed = 1719781147
+environment_mas_mode = "Sequential Random"
+script = ExtResource("1_chatw")
+max_turns = null
+
+[connection signal="simulation_finished" from="." to="." method="_on_simulation_finished"]

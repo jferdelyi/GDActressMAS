@@ -11,12 +11,15 @@ config_version=5
 [application]
 
 config/name="GDCPPActressMAS Demo"
-run/main_scene="res://scenes/Main.tscn"
+run/main_scene="res://exemples/predator_prey/predator_prey.tscn"
 config/features=PackedStringArray("4.2")
 config/icon="res://GDCPPActressMAS.png"
 
 [display]
 
+window/size/viewport_width=500
+window/size/viewport_height=500
+window/stretch/mode="viewport"
 window/dpi/allow_hidpi=false
 
 [dotnet]

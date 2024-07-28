@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://30l5sirami73"]
+
+[ext_resource type="Script" path="res://addons/gd_actress_mas/scripts/agent.gd" id="1_glxj6"]
+
+[node name="Agent" type="Node"]
+script = ExtResource("1_glxj6")

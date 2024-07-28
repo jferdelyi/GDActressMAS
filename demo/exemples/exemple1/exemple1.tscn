@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://7hs4p6r3oek2"]
+
+[ext_resource type="Script" path="res://exemples/exemple1/exemple1.gd" id="1_djknx"]
+
+[node name="Exemple1" type="GDEnvironment"]
+seed = 1720032948
+script = ExtResource("1_djknx")
+
+[connection signal="simulation_finished" from="." to="." method="_on_simulation_finished"]

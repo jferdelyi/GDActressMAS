@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbcmob4bc67ou"]
+
+[ext_resource type="Script" path="res://exemples/predator_prey/predator_prey.gd" id="1_ltvkf"]
+
+[node name="PredatorPrey" type="GDEnvironment"]
+environment_mas_mode = "Sequential Random"
+seed = 1720366402
+is_using_custom_see = true
+script = ExtResource("1_ltvkf")

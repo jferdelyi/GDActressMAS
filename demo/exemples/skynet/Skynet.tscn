@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://druceg6isxnm8"]
+
+[ext_resource type="Script" path="res://exemples/skynet/skynet.gd" id="1_hu5so"]
+
+[node name="Skynet" type="GDEnvironment"]
+seed = 1719782478
+script = ExtResource("1_hu5so")
+
+[connection signal="simulation_finished" from="." to="." method="_on_simulation_finished"]

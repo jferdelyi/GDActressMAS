@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfyp276jjwaf8"]
+
+[ext_resource type="Texture2D" uid="uid://bb8c4is14podm" path="res://assets/cell.png" id="1_cyi11"]
+
+[node name="Cell" type="Sprite2D"]
+position = Vector2(25, 25)
+texture = ExtResource("1_cyi11")

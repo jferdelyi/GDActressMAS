@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.6)
-project(gdcppactressmas)
+project(gd_minimal_agent)
 
 option(BUILD_FOR_EDITOR "If true, create and install libs as release ready to use in the demo folder" FALSE)
 
@@ -24,11 +24,6 @@ if(DEFINED BUILD_FOR_EDITOR)
 endif()
 
 include_directories(externals)
-if(CMAKE_BUILD_TYPE MATCHES Debug)
-	link_directories(externals/CPPActressMAS/bin/debug)
-else()
-	link_directories(externals/CPPActressMAS/bin/release)
-endif()
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 	set(TARGET_PATH x11)
@@ -45,7 +40,7 @@ else()
 endif()
 
 # Change the output directory to the bin directory
-set(BUILD_PATH ${CMAKE_SOURCE_DIR}/demo/addons/GDCPPActressMAS/bin/${TARGET_PATH})
+set(BUILD_PATH ${CMAKE_SOURCE_DIR}/demo/addons/gd_actress_mas/bin/${TARGET_PATH})
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${BUILD_PATH}")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${BUILD_PATH}")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${BUILD_PATH}")
@@ -57,7 +52,7 @@ SET(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG "${BUILD_PATH}")
 SET(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE "${BUILD_PATH}")
 
 # Set the c++ standard to c++17
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
@@ -177,9 +172,6 @@ if(ANDROID)
 	set(SYSTEM_NAME ${SYSTEM_NAME}.${ANDROID_ABI})
 endif()
 
-find_package(OpenSSL REQUIRED)
-find_package(PahoMqttCpp REQUIRED)
-
 if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
 	target_link_directories(${PROJECT_NAME}
 		PRIVATE
@@ -188,9 +180,6 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
 	target_link_options(${PROJECT_NAME} PRIVATE LINKER:-no_warn_duplicate_libraries)
 	target_link_libraries(${PROJECT_NAME}
 		godot-cpp.${SYSTEM_NAME}.${BUILD_TYPE}$<$<NOT:$<PLATFORM_ID:Android>>:.${BITS}>
-		OpenSSL::SSL 
-		PahoMqttCpp::paho-mqttpp3-static
-		CPPActressMAS
 	)
 else()
 	target_link_directories(${PROJECT_NAME}
@@ -200,25 +189,23 @@ else()
 	target_link_options(${PROJECT_NAME} PRIVATE LINKER:-no_warn_duplicate_libraries)
 	target_link_libraries(${PROJECT_NAME}
 		libgodot-cpp.${SYSTEM_NAME}.${BUILD_TYPE}$<$<NOT:$<PLATFORM_ID:Android>>:.${BITS}>.a
-		OpenSSL::SSL
-		PahoMqttCpp::paho-mqttpp3-static
-		libCPPActressMAS.a
 	)
 endif()
-	
+
 	# Add the compile flags
 	set_property(TARGET ${PROJECT_NAME} APPEND_STRING PROPERTY COMPILE_FLAGS ${GODOT_COMPILE_FLAGS})
 	set_property(TARGET ${PROJECT_NAME} APPEND_STRING PROPERTY LINK_FLAGS ${GODOT_LINKER_FLAGS})
 if(CMAKE_BUILD_TYPE MATCHES Debug)
-	set_property(TARGET ${PROJECT_NAME} PROPERTY OUTPUT_NAME "gdcppactressmas.debug")
+	set_property(TARGET ${PROJECT_NAME} PROPERTY OUTPUT_NAME "gd_minimal_agent.debug")
 else()
-	set_property(TARGET ${PROJECT_NAME} PROPERTY OUTPUT_NAME "gdcppactressmas.release")
+	set_property(TARGET ${PROJECT_NAME} PROPERTY OUTPUT_NAME "gd_minimal_agent.release")
+	target_compile_options(${PROJECT_NAME} PRIVATE -march=native -O3 -march=native -flto)
 endif()
 
 if(${BUILD_FOR_EDITOR})
 	if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
 		add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-			COMMAND ${CMAKE_COMMAND} -E copy ${BUILD_PATH}/${PROJECT_NAME}.release${LIB_EXT} ${BUILD_PATH}/gdcppactressmas.debug${LIB_EXT}
+			COMMAND ${CMAKE_COMMAND} -E copy ${BUILD_PATH}/${PROJECT_NAME}.release${LIB_EXT} ${BUILD_PATH}/gd_minimal_agent.debug${LIB_EXT}
 		)
 	else()
 		add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD

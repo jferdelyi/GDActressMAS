@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://qho2orhx6tby"]
+
+[ext_resource type="Script" path="res://exemples/exemple3/agents/monitor.gd" id="1_kprbq"]
+
+[node name="Monitor" type="GDAgent"]
+label = "Monitor"
+script = ExtResource("1_kprbq")

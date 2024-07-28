@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv5stq7oc1ak5"]
+
+[ext_resource type="Script" path="res://addons/gd_actress_mas/scripts/environment_mas.gd" id="1_fumyi"]
+
+[node name="EnvironmentMas" type="Node"]
+script = ExtResource("1_fumyi")

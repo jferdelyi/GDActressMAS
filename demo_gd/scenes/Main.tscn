@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6am4pp577edl"]
+
+[ext_resource type="Script" path="res://scripts/my_environment.gd" id="1_p3653"]
+[ext_resource type="PackedScene" uid="uid://c6mhx6cm3jc8x" path="res://scenes/MyAgent.tscn" id="2_tumu8"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_p3653")
+stop_if_empty = true
+environment_mas_mode = 1
+
+[node name="a0" parent="." instance=ExtResource("2_tumu8")]

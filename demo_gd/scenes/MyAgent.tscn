@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6mhx6cm3jc8x"]
+
+[ext_resource type="PackedScene" uid="uid://30l5sirami73" path="res://addons/gd_actress_mas/scenes/Agent.tscn" id="1_vb2n5"]
+[ext_resource type="Script" path="res://scripts/my_agent.gd" id="2_r506p"]
+
+[node name="MyAgent" instance=ExtResource("1_vb2n5")]
+script = ExtResource("2_r506p")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm0x3mqxcl1ax"]
+
+[ext_resource type="Script" path="res://exemples/exemple3/exemple3.gd" id="1_fswlp"]
+[ext_resource type="PackedScene" uid="uid://qho2orhx6tby" path="res://exemples/exemple3/agents/monitor.tscn" id="2_t7o2r"]
+
+[node name="Exemple3" type="GDEnvironment"]
+seed = 1719781147
+script = ExtResource("1_fswlp")
+
+[node name="Monitor" parent="." instance=ExtResource("2_t7o2r")]
+
+[connection signal="simulation_finished" from="." to="." method="_on_simulation_finished"]
+[connection signal="turn_finished" from="." to="." method="_on_turn_finished"]

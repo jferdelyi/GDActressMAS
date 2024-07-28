@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://di55wts31jvpg"]
+
+[ext_resource type="Script" path="res://exemples/predator_prey/agents/prey.gd" id="1_udmsy"]
+[ext_resource type="PackedScene" uid="uid://vbieuck1wjqx" path="res://exemples/predator_prey/agents/base.tscn" id="1_v7aft"]
+[ext_resource type="Texture2D" uid="uid://dvbdr3the1us1" path="res://assets/blue.png" id="2_by181"]
+
+[node name="Prey" instance=ExtResource("1_v7aft")]
+script = ExtResource("1_udmsy")
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_by181")

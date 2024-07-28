@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://or5rv3h3qfkl"]
+
+[ext_resource type="PackedScene" uid="uid://cv5stq7oc1ak5" path="res://addons/gd_actress_mas/scenes/EnvironmentMAS.tscn" id="1_pegs5"]
+[ext_resource type="Script" path="res://scripts/my_environment.gd" id="2_mwpcm"]
+
+[node name="MyEnvironment" instance=ExtResource("1_pegs5")]
+script = ExtResource("2_mwpcm")

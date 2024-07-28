@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://vbieuck1wjqx"]
+
+[ext_resource type="Script" path="res://exemples/predator_prey/agents/base.gd" id="1_nlsgc"]
+[ext_resource type="Texture2D" uid="uid://cc2yqcbai73lg" path="res://assets/yellow.png" id="2_eb10l"]
+
+[node name="Base" type="GDAgent"]
+script = ExtResource("1_nlsgc")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_eb10l")
